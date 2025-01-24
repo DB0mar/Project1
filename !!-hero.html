@@ -1,0 +1,83 @@
+<section class="hero">
+  <div class="carousel-container">
+    <div class="carousel-slide active">
+      <img src="image1.jpg" alt="Image 1" />
+      <div class="cta-box">
+        <h2>Welcome to Our Service</h2>
+        <p>Your solution to better productivity and efficiency.</p>
+        <a href="#signup" class="cta-button">Sign Up Now</a>
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <img src="image2.jpg" alt="Image 2" />
+      <div class="cta-box">
+        <h2>Transform Your Workflow</h2>
+        <p>Empower your team with powerful tools.</p>
+        <a href="#info" class="cta-button">Learn More</a>
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <img src="image3.jpg" alt="Image 3" />
+      <div class="cta-box">
+        <h2>Innovation at Your Fingertips</h2>
+        <p>Discover new ways to innovate your business.</p>
+        <a href="#signup" class="cta-button">Get Started</a>
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <img src="image4.jpg" alt="Image 4" />
+      <div class="cta-box">
+        <h2>Maximize Efficiency</h2>
+        <p>Our platform helps you get more done.</p>
+        <a href="#info" class="cta-button">Find Out More</a>
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <img src="image5.jpg" alt="Image 5" />
+      <div class="cta-box">
+        <h2>Ready for the Future?</h2>
+        <p>Stay ahead of the competition with our solution.</p>
+        <a href="#signup" class="cta-button">Sign Up Today</a>
+      </div>
+    </div>
+  </div>
+  <!-- Optional Carousel Navigation -->
+  <div class="carousel-nav">
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".carousel-slide");
+  const totalSlides = slides.length;
+  const prevButton = document.querySelector(".prev");
+  const nextButton = document.querySelector(".next");
+
+  // Function to move to the next slide
+  function moveToNextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  // Function to move to the previous slide
+  function moveToPrevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+
+  // Update carousel based on current slide
+  function updateCarousel() {
+    const newTransformValue = `translateX(-${currentSlide * 100}%)`;
+    document.querySelector(".carousel-container").style.transform =
+      newTransformValue;
+  }
+
+  // Event listeners for next and previous buttons
+  nextButton.addEventListener("click", moveToNextSlide);
+  prevButton.addEventListener("click", moveToPrevSlide);
+
+  // Auto-play the carousel every 5 seconds
+  setInterval(moveToNextSlide, 5000);
+</script>
